@@ -13,13 +13,15 @@
 
 #include "struc.h"
 
+extern struct cards sCardStruct;
+
 /**
  * @brief Main function for struc.c, it have some basic feature with structure
  * 
  * @return int 
  */
 
-int main()
+int xmain()
 {
     int ret = 0;
     int area;
@@ -35,4 +37,22 @@ int main()
     printf("Program successfully executed\n");
     fflush(stdout);
     return ret;
+}
+
+/**
+ * @brief This main function is use for cards only
+ * 
+ * @return int 
+ */
+int main()
+{
+    xmain();
+
+    sCardStruct.color  = "black";
+    sCardStruct.shape  = "Heart";
+    sCardStruct.face   = 6;
+
+    printf("Your card is %s, %s %d\n", sCardStruct.color, sCardStruct.shape, sCardStruct.face);
+    printf(" The size of our struct %lu\n", sizeof(sCardStruct));
+    fflush(stdout);
 }
